@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.no-scroll {
+  overflow: hidden;       /* Removes scrolling */
+  scrollbar-width: none;  /* Firefox: hide scrollbar */
+}
+
+.no-scroll::-webkit-scrollbar {
+  display: none;          /* Chrome, Safari, Edge: hide scrollbar */
+}
+
+
+@keyframes rotateSwing {
+  0% { transform: rotate(12deg); }
+  50% { transform: rotate(-12deg); }
+  100% { transform: rotate(12deg); }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.float2 {
+  animation: float2 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.swing {
+  animation: rotateSwing 0.5s infinite steps(1);
+}
+
+.inter{
+  font-family: var(--font-inter), sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+/* Font faces are now loaded via next/font/local */
+.helvetica{
+  font-family: var(--font-helvetica), sans-serif;
+} 
+
+.pixel{
+  font-family: var(--font-sideware), sans-serif;
+}
+
+@keyframes borderShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.button-shine {
+  position: relative;
+  background: #EC8A25;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 4px 15px rgba(236, 138, 37, 0.4);
+}
+
+.button-shine::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    90deg,
+    #EC8A25,
+    #FFA64D,
+    #EC8A25,
+    #FFA64D,
+    #EC8A25
+  );
+  background-size: 200% 100%;
+  border-radius: inherit;
+  z-index: -1;
+  animation: borderShine 3s ease-in-out infinite;
+}
+
+@keyframes bounceVertical {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-vertical {
+  animation: bounceVertical 2s ease-in-out infinite;
+}
+
+
+
